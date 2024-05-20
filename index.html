@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Axios 예제</title>
+    <title>Axios with JSONP 예제</title>
 </head>
 <body>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios-jsonp"></script>
     <script>
         async function getOpenApiData(url) {
             try {
-                const response = await axios.get(url);
+                const response = await axios.jsonp(url);
                 return response.data;
             } catch (error) {
                 console.error(`Error: ${error}`);
@@ -18,7 +19,7 @@
             }
         }
 
-        const openApiUrl = 'https://api.chzzk.naver.com/';
+        const openApiUrl = 'https://api.chzzk.naver.com/service/v1/channels/followings?size=505';
         getOpenApiData(openApiUrl)
             .then(data => {
                 console.log(data);
