@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-    const response = await axios.get('https://124.80.212.31:3000/api'); // 로컬 서버의 프록시 경로로 요청
+    const response = await axios.get('http://124.80.212.31:3000/api'); // 로컬 서버의 프록시 경로로 요청
 
     if (response.status !== 200) {
       throw new Error('Network response was not ok');

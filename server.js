@@ -5,7 +5,7 @@ const app = express();
 
 // 프록시 설정
 app.use('/api', createProxyMiddleware({
-    target: 'https://api.chzzk.naver.com',
+    target: 'http://api.chzzk.naver.com',
     changeOrigin: true,
     pathRewrite: {
         '^/api': '/service/v1/channels/followings?size=10', // 프록시 경로 재작성
