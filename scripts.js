@@ -1,20 +1,6 @@
-const axios = require('axios');
+var request = require('then-jsonp');
 
-async function getOpenApiData(url) {
-  try {
-    const response = await axios.get(url);
-    return response.data;
-  } catch (error) {
-    console.error(`Error: ${error}`);
-    return null;
-  }
-}
-
-const openApiUrl = 'https://api.chzzk.naver.com/service/v1/channels/followings?size=505';
-getOpenApiData(openApiUrl)
-  .then(data => {
-    console.log(data);
-  })
-  .catch(error => {
-    console.error(`Error: ${error}`);
-  });
+var result = request('GET', 'https://api.chzzk.naver.com/service/v1/channels/followings?size=505');
+result.done(function (res) {
+  console.dir(res);
+});
