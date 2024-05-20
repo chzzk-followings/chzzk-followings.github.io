@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axios 예제</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        async function getOpenApiData(url) {
+            try {
+                const response = await axios.get(url);
+                return response.data;
+            } catch (error) {
+                console.error(`Error: ${error}`);
+                return null;
+            }
+        }
+
+        const openApiUrl = 'https://api.chzzk.naver.com:443/service/v1/channels/followings?size=505';
+        getOpenApiData(openApiUrl)
+            .then(data => {
+                console.log(data);
+            })
+            .catch(error => {
+                console.error(`Error: ${error}`);
+            });
+    </script>
+</body>
+</html>
