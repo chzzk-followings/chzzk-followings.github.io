@@ -1,4 +1,6 @@
-fetch("https://api.chzzk.naver.com/service/v1/channels/followings")
+await jsonp('//api.api.chzzk.naver.com/service/v1/channels/followings', null, (err, res) => {
+  // .....
+});
 
 document.addEventListener("DOMContentLoaded", () => {
   const profiles = [
